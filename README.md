@@ -18,25 +18,37 @@ sudo apt-get install php7.1-cli php7.1-common php7.1-json php7.1-opcache php7.1-
 ```
 
 Install the requirements for Linux valet.
-`sudo apt-get install network-manager libnss3-tools jq xsel`
+```sh
+sudo apt-get install network-manager libnss3-tools jq xsel
+```
 
 Download Composer from the website.
 [https://getcomposer.org/download/](https://getcomposer.org/download/)
 
 Setup Composer globally.  
-`sudo mv composer.phar /usr/local/bin/composer`
+```sh
+sudo mv composer.phar /usr/local/bin/composer
+```
 
 Install Valet Linux with Composer.
-`composer global require cpriego/valet-linux`
+```sh
+composer global require cpriego/valet-linux
+```
 
 Setup PATH to include Composer tools.  
-`echo 'PATH=$HOME/.config/composer/vendor/bin:$PATH' >> ~/.bashrc`
+```sh
+echo 'PATH=$HOME/.config/composer/vendor/bin:$PATH' >> ~/.bashrc
+```
 
 Exit the terminal and open new session, run valet install.  
-`valet install`
+```sh
+valet install
+```
 
 Install Git for version control.  
-`sudo apt-get install git`
+```sh
+sudo apt-get install git
+```
 
 Install Atom as code editor. Text Editor works if you are a Linux minimalist.
 

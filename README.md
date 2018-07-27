@@ -54,7 +54,7 @@ Install Atom as code editor. Text Editor works if you are a Linux minimalist.
 
 ## Installation
 
-Open your terminal home directory and create a directory clone this repository in your projects directory. Install dependencies with composer.
+Open your terminal home directory and create your projects directory. Clone this repository in your projects directory. Install dependencies with composer.
 
 ```sh
 mkdir Projects

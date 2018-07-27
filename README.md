@@ -1,2 +1,41 @@
-# symfony-bootstrap-boilerplate
-Symfony 4.1 boilerplate with bootstrap 4
+# Getting started with Symfony 4
+This project is a tutorial for getting started with the Symfony PHP framework. If your system meets the requirements the tutorial requires about 15 minutes of your time.
+
+## Requirements
+
+Modern Symfony applications require PHP 7.1 and composer. In our tutorial we will also use the MySQL database version 5.7.
+
+Windows users are required to run Ubuntu 18.04 as a VM for local development. Vagrant with Homestead is not recommended because it is just too complex for most web development purposes. 
+
+Install VirtualBox or VMware and download Ubuntu from the website. Install your Ubuntu VM with 2GB RAM and 20GB disk space (Ubuntu requires 8GB). We recommend the Minimal Installation.
+
+When your VM is finally ready open the terminal for the real work. Install PHP 7.1 from packages.  
+`sudo apt-get install software-properties-common`
+`sudo add-apt-repository ppa:ondrej/php`
+`sudo apt-get update`
+`sudo apt-get install php7.1-cli php7.1-common php7.1-json php7.1-opcache php7.1-curl php7.1-mysql php7.1-mbstring php7.1-mcrypt php7.1-xml php7.1-zip php7.1-fpm`
+
+Install the requirements for Linux valet.
+`sudo apt-get install network-manager libnss3-tools jq xsel`
+
+Download Composer from the website.
+[https://getcomposer.org/download/](https://getcomposer.org/download/)
+
+Setup Composer globally.  
+`sudo mv composer.phar /usr/local/bin/composer`
+
+Install Valet Linux with Composer.
+`composer global require cpriego/valet-linux`
+
+Setup PATH to include Composer tools.  
+`echo 'PATH=$HOME/.config/composer/vendor/bin:$PATH' >> ~/.bashrc`
+
+Exit the terminal and open new session, run valet install.  
+`valet install`
+
+Install Git for version control.  
+`sudo apt-get install git`
+
+Install Atom as code editor. Text Editor works if you are a Linux minimalist.
+
+

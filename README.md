@@ -52,4 +52,23 @@ sudo apt-get install git
 
 Install Atom as code editor. Text Editor works if you are a Linux minimalist.
 
+## Installation
+
+Open your terminal home directory and create a directory clone this repository in your projects directory. Install dependencies with composer.
+
+```sh
+mkdir Projects
+cd Projects
+git clone https://github.com/mikepage/symfony-bootstrap-boilerplate
+cd symfony-bootstrap-boilerplate
+composer install
+```
+
+Link valet from the project directory. Open [http://symfony.test](http://symfony.test) in your browser, you should see the Symfony welcome page.
+
+```sh
+valet link symfony
+```
+
+
 

@@ -10,10 +10,12 @@ Windows users are required to run Ubuntu 18.04 as a VM for local development. Va
 Install VirtualBox or VMware and download Ubuntu from the website. Install your Ubuntu VM with 2GB RAM and 20GB disk space (Ubuntu requires 8GB). We recommend the Minimal Installation.
 
 When your VM is finally ready open the terminal for the real work. Install PHP 7.1 from packages.  
-`sudo apt-get install software-properties-common`
-`sudo add-apt-repository ppa:ondrej/php`
-`sudo apt-get update`
-`sudo apt-get install php7.1-cli php7.1-common php7.1-json php7.1-opcache php7.1-curl php7.1-mysql php7.1-mbstring php7.1-mcrypt php7.1-xml php7.1-zip php7.1-fpm`
+```sh
+sudo apt-get install software-properties-common  
+sudo add-apt-repository ppa:ondrej/php  
+sudo apt-get update  
+sudo apt-get install php7.1-cli php7.1-common php7.1-json php7.1-opcache php7.1-curl php7.1-mysql php7.1-mbstring php7.1-mcrypt php7.1-xml php7.1-zip php7.1-fpm
+```
 
 Install the requirements for Linux valet.
 `sudo apt-get install network-manager libnss3-tools jq xsel`

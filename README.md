@@ -3,7 +3,7 @@ This project is a tutorial for getting started with the Symfony PHP framework. I
 
 ## Requirements
 
-Modern Symfony applications require PHP 7.1 and composer. In our tutorial we will also use the MySQL database version 5.7.
+Modern Symfony applications require PHP 7.1 and composer. In our tutorial we will also use the MySQL database version 5.7. Mac users should use Homebrew to install PHP and Vagrant. Mac Setup: [https://www.phptherightway.com/#mac_setup](https://www.phptherightway.com/#mac_setup)
 
 Windows users are required to run Ubuntu 18.04 as a VM for local development. Vagrant with Homestead is not recommended because it is just too complex for most web development purposes. 
 

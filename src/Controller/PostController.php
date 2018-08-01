@@ -6,7 +6,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  use App\Entity\Post;
  use Symfony\Component\HttpFoundation\Response;
-//test commit 2
+//test commit 3
 
 class PostController extends Controller
 {

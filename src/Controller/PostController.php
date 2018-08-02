@@ -62,7 +62,7 @@ class PostController extends Controller
              //     $em->persist($post);
              //     $em->flush();
              //   }
-             return $this->render('post/index.html.twig',array(
+             return $this->render('post/form.html.twig',array(
                'form' => $form->createView(),
                    ));
        }

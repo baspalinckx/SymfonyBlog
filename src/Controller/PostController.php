@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  use App\Entity\Post;
@@ -15,25 +17,21 @@ class PostController extends Controller
      */
      public function index()
      {
-         // you can fetch the EntityManager via $this->getDoctrine()
-         // or you can add an argument to your action: index(EntityManagerInterface $entityManager)
-         $entityManager = $this->getDoctrine()->getManager();
+       $posts = $this->getDoctrine()
+           ->getRepository(Post::class)
+           ->findAll();
 
-         $post = new Post();
-         $post->setUsername('Bas');
-         $post->setMessage('I just ate pancakes!');
-         $post->setTime('21:00 1 August 2018');
-
-         // tell Doctrine you want to (eventually) save the Product (no queries yet)
-         $entityManager->persist($post);
-
-         // actually executes the queries (i.e. the INSERT query)
-         // $entityManager->flush();
-
-         $products = $repository->findAll();
+      // echo $posts
 
 
-         return new Response('Saved new post with id '.$products->getMessage());
+       if (!$posts) {
+           throw $this->createNotFoundException(
+               'No posts found'
+           );
+       }
+
+
+       return $this->render('post/index.html.twig', ['posts' => $posts]);
      }
 
      /**
@@ -51,7 +49,8 @@ class PostController extends Controller
              );
          }
 
-         return new Response('Check out this great product: '.$post->getMessage());
+
+         return new Response('Check out this great post: '.$post->getMessage());
 
          // or render a template
          // in the template, print things with {{ product.name }}

@@ -20,7 +20,8 @@
 
 </div>
 
-<div>{{ render(controller('post/form.html.twig')) }}</div>
-
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
 
 {% endblock %}

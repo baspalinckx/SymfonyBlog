@@ -28,8 +28,38 @@ class PostController extends Controller
          $entityManager->persist($post);
 
          // actually executes the queries (i.e. the INSERT query)
-         $entityManager->flush();
+         // $entityManager->flush();
 
-         return new Response('Saved new post with id '.$post->getId());
+         $products = $repository->findAll();
+
+
+         return new Response('Saved new post with id '.$products->getMessage());
      }
+
+     /**
+      * @Route("/post/{id}", name="product_show")
+      */
+     public function show($id)
+     {
+         $post = $this->getDoctrine()
+             ->getRepository(Post::class)
+             ->find($id);
+
+         if (!$post) {
+             throw $this->createNotFoundException(
+                 'No product found for id '.$id
+             );
+         }
+
+         return new Response('Check out this great product: '.$post->getMessage());
+
+         // or render a template
+         // in the template, print things with {{ product.name }}
+         // return $this->render('product/show.html.twig', ['product' => $product]);
+     }
+
+
+
+
+
  }

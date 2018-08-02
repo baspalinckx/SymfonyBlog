@@ -18,7 +18,7 @@ class PostController extends Controller
     /**
      * @Route("/post", name="post")
      */
-     public function index()
+     public function getPosts()
      {
        $posts = $this->getDoctrine()
            ->getRepository(Post::class)
@@ -29,6 +29,7 @@ class PostController extends Controller
                'No posts found'
            );
        }
+
        return $this->render('post/index.html.twig', ['posts' => $posts]);
      }
      /**
@@ -62,7 +63,7 @@ class PostController extends Controller
              //     $em->persist($post);
              //     $em->flush();
              //   }
-             return $this->render('post/form.html.twig',array(
+             return $this->render('post/index.html.twig',array(
                'form' => $form->createView(),
                    ));
        }

@@ -24,23 +24,20 @@ class PostController extends Controller
            ->getRepository(Post::class)
            ->findAll();
 
-
-
        if (!$posts) {
            throw $this->createNotFoundException(
                'No posts found'
            );
        }
-
-
        return $this->render('post/index.html.twig', ['posts' => $posts]);
-
-
      }
+     /**
+      * @Route("/post", name="addpost" )
+      */
 
      public function addPost(Request $request)
      {
-         if ($request->getMethod() == 'POST') {
+
              // EntityManager
              $em = $this->getDoctrine()->getEntityManager();
 
@@ -65,10 +62,8 @@ class PostController extends Controller
              //     $em->persist($post);
              //     $em->flush();
              //   }
-
-           }
-           return $this->render('post/index.html.twig',array(
-                   'form' => $form->createView(),
-           ));
+             return $this->render('post/index.html.twig',array(
+               'form' => $form->createView(),
+                   ));
        }
      }

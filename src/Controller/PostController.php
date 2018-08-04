@@ -11,12 +11,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  use Symfony\Component\HttpFoundation\Request;
  use Symfony\Component\Form\Extension\Core\Type\TextType;
  use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 //test commit 3
 
 class PostController extends Controller
 {
     /**
      * @Route("/post", name="post")
+      * @Template("/post/index.html.twig")
      */
      public function getPosts()
      {
@@ -30,41 +33,30 @@ class PostController extends Controller
            );
        }
 
-       return $this->render('post/index.html.twig', ['posts' => $posts]);
+
+    return array('posts' => $posts);
      }
-     /**
-      * @Route("/post", name="addpost" )
-      */
 
-     public function addPost(Request $request)
-     {
+     public function addPost(Request $request){
 
-             // EntityManager
-             $em = $this->getDoctrine()->getEntityManager();
+       $post = new Post();
 
-             // New entity
-             $post = new Post();
+        $em = $this->getDoctrine()->getManager();
 
-             // Build the form
-             $form = $this->createFormBuilder()
-             ->add('username', TextType::class)
-             ->add('message', TextType::class)
-             ->add('submit', SubmitType:: class)
-             ->getForm();
-             //
-             // // Populate
-             // $form->bindRequest($request);
-             //
-             // // Check
-             // if($form->isValid()) {
-             //     // Fill the entity
-             //     $post->setName($form['username']->getData());
-             //     $post->setMessage($form['message']->getData());
-             //     $em->persist($post);
-             //     $em->flush();
-             //   }
-             return $this->render('post/index.html.twig',array(
-               'form' => $form->createView(),
-                   ));
-       }
-     }
+        $data = json_decode($request->getContent());
+
+        if (isset($data->username)) {
+            $post->setUsername($data->username);
+        }
+
+        if (isset($data->message)) {
+            $entity->setMessage($data->message);
+        }
+
+
+        $em->persist($post);
+        $em->flush();
+
+        return $this->json($post);
+    }
+   }

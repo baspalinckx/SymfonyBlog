@@ -41,8 +41,12 @@ class FormController extends Controller
               // Fill the entity
               $post->setUsername($form['username']->getData());
               $post->setMessage($form['message']->getData());
+              $post->setTime(date('d/m/Y'));
               $em->persist($post);
               $em->flush();
+
+              return $this->redirect($this->generateUrl('post'));
+
             }
 
           // $data = json_decode($request->getContent());

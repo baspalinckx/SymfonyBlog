@@ -36,27 +36,4 @@ class PostController extends Controller
 
     return array('posts' => $posts);
      }
-
-     public function addPost(Request $request){
-
-       $post = new Post();
-
-        $em = $this->getDoctrine()->getManager();
-
-        $data = json_decode($request->getContent());
-
-        if (isset($data->username)) {
-            $post->setUsername($data->username);
-        }
-
-        if (isset($data->message)) {
-            $entity->setMessage($data->message);
-        }
-
-
-        $em->persist($post);
-        $em->flush();
-
-        return $this->json($post);
-    }
    }

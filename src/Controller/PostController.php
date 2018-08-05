@@ -56,9 +56,12 @@ public function deletePost(Post $post){
         'No product found for id '.$id
     );
 
-    $em->remove($toDeletePost);
-    $em->flush();
+
 }
+
+$em->remove($toDeletePost);
+$em->flush();
+
 return $this->redirect($this->generateUrl('post'));
 
 

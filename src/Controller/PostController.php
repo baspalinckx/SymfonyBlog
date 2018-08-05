@@ -36,4 +36,17 @@ class PostController extends Controller
 
     return array('posts' => $posts);
      }
+
+     /**
+     * @param Post $post
+     *
+     * @Route("/{id}/delete", requirements={"id" = "\d+"}, name="deletepost")
+     * @return RedirectResponse
+     *
+     */
+
+     public function deletePost(Post $post){
+
+
+     }
    }

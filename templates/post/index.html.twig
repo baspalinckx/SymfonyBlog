@@ -5,6 +5,7 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .time-wrapper { font-size:10px; }
 </style>
 <div class="example-wrapper">
 <h1>the Useless Blog</h1>
@@ -13,10 +14,24 @@
 <div class="example-wrapper">
 
 {% for key,item in posts %}
-    <b>{{ item.username }}</b>
+    <b>{{ item.username }}</b> - {{item.time}}
+    <br>
     {{ item.message}} <br>
     <hr>
 {% endfor %}
+<br>
+<br>
+<br>
+<a href="{{ path('addpost') }}">Join the conversation! ---></a>
 
 </div>
+
+<!-- <form method="post">
+ <input type="text" name="username" placeholder="Username" ><br>
+ <input type="text" name="message" placeholder="Message"><br><br>
+ <input type="submit" value="Submit">
+</form>
+
+-->
+
 {% endblock %}

@@ -14,7 +14,7 @@
 <div class="example-wrapper">
 
 {% for key,item in posts %}
-    <b>{{ item.username }}</b> - {{item.time}} - <a href="{{ path('deletepost', {item.id}) }}">Delete</a>
+    <b>{{ item.username }}</b> - {{item.time}} - <a href="{{ path('deletepost', {id : item.id}) }}">Delete</a>
     <br>
     {{ item.message}} <br>
     <hr>

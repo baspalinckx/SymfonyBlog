@@ -41,7 +41,7 @@ class PostController extends Controller
      /**
      * @param Post $post
      *
-     * @Route("/{id}/delete", requirements={"id" = "\d+"}, name="deletepost")
+     * @Route("post/{id}/delete", requirements={"id" = "\d+"}, name="deletepost")
      * @return RedirectResponse
      *
      */

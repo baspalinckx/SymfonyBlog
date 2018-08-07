@@ -28,9 +28,16 @@ class PostController extends Controller
            ->findAll();
 
        if (!$posts) {
-           throw $this->createNotFoundException(
-               'No posts found'
-           );
+
+         $em = $this->getDoctrine()->getEntityManager();
+
+         $post = new Post();
+         $post->setUsername('Bas');
+         $post->setMessage('This post is for demo purposes');
+         $post->setTime(date('d/m/Y'));
+
+         $em->persist($post);
+         $em->flush();
        }
 
         return array('posts' => $posts);

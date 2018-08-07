@@ -34,6 +34,39 @@ class PostController extends Controller
        }
 
 
+
     return array('posts' => $posts);
      }
+
+     /**
+     * @param Post $post
+     *
+     * @Route("post/{id}/delete", requirements={"id" = "\d+"}, name="deletepost")
+     * @return RedirectResponse
+     *
+     */
+public function deletePost(Post $post){
+
+  $em = $this->getDoctrine()->getManager();
+
+  $toDeletePost = $em->getRepository(Post::class)->find($post);
+
+  if (!$toDeletePost) {
+    throw $this->createNotFoundException(
+        'No product found for id '.$id
+    );
+
+
+}
+
+$em->remove($toDeletePost);
+$em->flush();
+
+return $this->redirect($this->generateUrl('post'));
+
+
+
    }
+
+
+ }

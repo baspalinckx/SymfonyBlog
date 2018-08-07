@@ -14,7 +14,8 @@
 <div class="example-wrapper">
 
 {% for key,item in posts %}
-    <b>{{ item.username }}</b> - {{item.time}} - <a href="{{ path('deletepost', {id : item.id}) }}" onclick="return confirm('Are you sure?');">Delete</a>
+    <b>{{ item.username }}</b> - {{item.time}} - <a href="{{ path('deletepost', {id : item.id}) }}" onclick="return confirm('Are you sure?');">Delete</a> -
+    <a href="{{ path('updatepost', {id : item.id}) }}">Update</a>
     <br>
     {{ item.message}} <br>
     <hr>
@@ -25,13 +26,4 @@
 <a href="{{ path('addpost') }}">Join the conversation! ---></a>
 
 </div>
-
-<!-- <form method="post">
- <input type="text" name="username" placeholder="Username" ><br>
- <input type="text" name="message" placeholder="Message"><br><br>
- <input type="submit" value="Submit">
-</form>
-
--->
-
 {% endblock %}

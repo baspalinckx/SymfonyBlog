@@ -5,5 +5,5 @@ To get started with PHP development, my internship company gave me the task to b
 ## I learned
 
 - Using PHP in a back-end scenario
-- Using Symfony to build an API
+- Using Symfony with Doctrine to build an API
 
